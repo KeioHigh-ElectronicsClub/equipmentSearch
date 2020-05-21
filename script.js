@@ -12,6 +12,7 @@ $('#keyword_submit').on('click', function () {
     success: function (msg, type) {
       console.log(msg)
       console.log(type)
+      showList(msg)
     },
     error: function (xhr, status) {
       console.log(status)
@@ -61,9 +62,43 @@ $('#item_submit').on('click', function () {
     success: function (msg, type) {
       console.log(msg)
       console.log(type)
+      showList(msg)
     },
     error: function (xhr, status) {
       console.log(status)
     },
   })
 })
+
+function showList(list) {
+  console.log(list[0])
+
+  var box = $('<div></div>', {
+    class: '',
+  }).css('border', '1px solid black')
+  var category = $('<p></p>').text(list[0].category)
+  var name = $('<p></p>').text(list[0].name)
+  var constant1 = $('<p></p>').text(list[0].constant1)
+  var constant2 = $('<p></p>').text(list[0].constant2)
+  var date = $('<p></p>').text(new Date(list[0].date).toDateString())
+  var place = $('<p></p>').text(list[0].place)
+  var updatedBy = $('<p></p>').text(list[0].updatedBy)
+  var URL = $('<p></p>').append(
+    $('<a></a>', {
+      href: list[0].url,
+    }).text(list[0].url),
+  )
+  var remark = $('<p></p>').text(list[0].remark)
+  box.append(
+    category,
+    name,
+    constant1,
+    constant2,
+    place,
+    date,
+    updatedBy,
+    URL,
+    remark,
+  )
+  $('#list').append(box)
+}
