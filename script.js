@@ -71,34 +71,38 @@ $('#item_submit').on('click', function () {
 })
 
 function showList(list) {
-  console.log(list[0])
+  console.log(list)
 
-  var box = $('<div></div>', {
-    class: '',
-  }).css('border', '1px solid black')
-  var category = $('<p></p>').text(list[0].category)
-  var name = $('<p></p>').text(list[0].name)
-  var constant1 = $('<p></p>').text(list[0].constant1)
-  var constant2 = $('<p></p>').text(list[0].constant2)
-  var date = $('<p></p>').text(new Date(list[0].date).toDateString())
-  var place = $('<p></p>').text(list[0].place)
-  var updatedBy = $('<p></p>').text(list[0].updatedBy)
-  var URL = $('<p></p>').append(
-    $('<a></a>', {
-      href: list[0].url,
-    }).text(list[0].url),
-  )
-  var remark = $('<p></p>').text(list[0].remark)
-  box.append(
-    category,
-    name,
-    constant1,
-    constant2,
-    place,
-    date,
-    updatedBy,
-    URL,
-    remark,
-  )
-  $('#list').append(box)
+  $('#list').empty()
+
+  for (l of list) {
+    var box = $('<div></div>', {
+      class: '',
+    }).css('border', '1px solid black')
+    var category = $('<p></p>').text(l.category)
+    var name = $('<p></p>').text(l.name)
+    var constant1 = $('<p></p>').text(l.constant1)
+    var constant2 = $('<p></p>').text(l.constant2)
+    var date = $('<p></p>').text(new Date(l.date).toDateString())
+    var place = $('<p></p>').text(l.place)
+    var updatedBy = $('<p></p>').text(l.updatedBy)
+    var URL = $('<p></p>').append(
+      $('<a></a>', {
+        href: l.url,
+      }).text(l.url),
+    )
+    var remark = $('<p></p>').text(l.remark)
+    box.append(
+      category,
+      name,
+      constant1,
+      constant2,
+      place,
+      date,
+      updatedBy,
+      URL,
+      remark,
+    )
+    $('#list').append(box)
+  }
 }

@@ -1,0 +1,9 @@
+.searchByItem > label {
+  display: block;
+  margin-bottom: 8px;
+}
+.searchByItem > label > input {
+  width: 200px;
+  height: 30px;
+  margin-left: 100px;
+}
