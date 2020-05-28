@@ -1,9 +1,115 @@
+body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: normal;
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
+    'ヒラギノ角ゴ Pro W3', sans-serif;
+}
+.sub-title {
+  font-size: 2rem;
+  padding: 10px 8px 0px 0px;
+  margin-bottom: 15px;
+  border-bottom: 2px #31136e solid;
+  font-weight: normal;
+  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
+    'ヒラギノ角ゴ Pro W3', sans-serif;
+}
+#keyword {
+  line-height: 200%;
+  width: 23rem;
+}
+#keyword_submit {
+  border: none;
+  cursor: pointer;
+  background: #383838;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 30px;
+  margin-top: 10px;
+}
+
+#btn {
+  position: absolute;
+  top: 13px;
+  left: 170px;
+}
+#btn p {
+  font-size: 2rem;
+  margin: 0;
+}
 .searchByItem > label {
   display: block;
   margin-bottom: 8px;
 }
-.searchByItem > label > input {
-  width: 200px;
-  height: 30px;
-  margin-left: 100px;
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+.searchByItem {
+  position: relative;
+}
+.searchItem {
+  position: relative;
+  display: flex;
+  margin: 5px auto;
+}
+.searchItem > label {
+  flex-basis: 15rem;
+}
+#item_submit {
+  border: none;
+  cursor: pointer;
+  background: #383838;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 30px;
+  margin-top: 10px;
+}
+#items {
+  display: none;
+}
+
+@media screen and (max-width: 560px) {
+  #keyword {
+    width: 96%;
+  }
+  .searchItem > input {
+    flex-basis: 100%;
+    margin-right: 10px;
+  }
+  #keyword_submit,
+  #item_submit {
+    width: 98%;
+  }
+}
+
+#list > .resultBox {
+  margin: 10px 10px;
+  border-bottom: black 1px dashed;
+}
+
+#list > .resultBox > .valueWrap > .categoryNameWrap > .category {
+  font-weight: bold;
+}
+#list > .resultBox > .valueWrap > .categoryNameWrap > .name {
+  margin: 0.3rem 1rem;
+}
+
+#list > .resultBox > div {
+  width: 50%;
+}
+#list > .resultBox > .valueWrap > div {
+  display: flex;
+}
+
+#list > .resultBox p {
+  margin: 0.3rem 1rem;
 }

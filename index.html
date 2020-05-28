@@ -16,27 +16,57 @@
 <body>
   <header></header>
 
-  <section>
-    <h2>キーワード検索</h2>
+  <h1 class="page-title">備品検索</h1>
+
+  <section class="searhByKeyword">
+    <h2 class="sub-title">キーワード検索</h2>
     <input type="text" name="keyword" id="keyword">
     <input type="submit" value="検索" id="keyword_submit">
   </section>
 
   <section class="searchByItem">
-    <h2>項目別検索</h2>
+    <h2 class="sub-title">項目別検索</h2>
+    <div id="btn">
+      <p>+</p>
+    </div>
+    <div id="items">
+      <ul>
+        <li class="searchItem">
+          <label>カテゴリー </label>
+          <input type="text" name="category" id="category">
+        </li>
+        <li class="searchItem">
+          <label>名前 </label>
+          <input type="text" name="name" id="name"></li>
+        <li class="searchItem">
+          <label>定数１ </label>
+          <input type="text" name="constant1" id="constant1">
+        </li>
+        <li class="searchItem">
+          <label>定数２ </label>
+          <input type="text" name="constant2" id="constant2">
+        </li>
+        <li class="searchItem">
+          <label>数量 </label>
+          <input type="text" name="number" id="number"></li>
+        <li class="searchItem">
+          <label>場所</label>
+          <input type="text" name="place" id="place"></li>
+        <li class="searchItem">
+          <label>更新日 </label>
+          <input type="date" name="date" id="date"></li>
+        <li class="searchItem">
+          <label>作成者名</label>
+          <input type="text" name="updatedBy" id="updatedBy">
+        </li>
+        <input type="submit" value="検索" id="item_submit">
+      </ul>
+    </div>
 
-    <label>カテゴリー<input type="text" name="category" id="category"> </label>
-    <label>名前<input type="text" name="name" id="name"> </label>
-    <label>定数１<input type="text" name="constant1" id="constant1"> </label>
-    <label>定数２<input type="text" name="constant2" id="constant2"> </label>
-    <label>数量<input type="text" name="number" id="number"> </label>
-    <label>場所<input type="text" name="place" id="place"> </label>
-    <label>更新日<input type="date" name="date" id="date"> </label>
-    <label>作成者名<input type="text" name="updatedBy" id="updatedBy"> </label>
-    <input type="submit" value="検索" id="item_submit">
   </section>
 
   <section id="list">
+    <h2>検索結果</h2>
 
   </section>
 
