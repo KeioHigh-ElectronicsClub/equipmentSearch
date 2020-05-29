@@ -2,6 +2,8 @@ body {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 10px;
+  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
+    'ヒラギノ角ゴ Pro W3', sans-serif;
 }
 
 .page-title {
@@ -34,15 +36,32 @@ body {
   padding: 10px 30px;
   margin-top: 10px;
 }
-
-#btn {
-  position: absolute;
-  top: 13px;
-  left: 170px;
+input {
+  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
+    'ヒラギノ角ゴ Pro W3', sans-serif;
 }
-#btn p {
-  font-size: 2rem;
-  margin: 0;
+.searchByItem > h2 {
+  cursor: pointer;
+  position: relative;
+}
+.searchByItem > h2:after {
+  content: ' ';
+  position: absolute;
+  left: 185px;
+  top: 30px;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px;
+  border-right: solid 2px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.searchByItem > h2.open:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 45%;
 }
 .searchByItem > label {
   display: block;
@@ -90,26 +109,52 @@ li {
     width: 98%;
   }
 }
+#keyword_submit:hover,
+#item_submit:hover {
+  background-color: #31136e;
+}
 
 #list > .resultBox {
-  margin: 10px 10px;
+  margin: 0 auto;
   border-bottom: black 1px dashed;
+}
+#list > .resultBox > .valueWrap {
+}
+#list > .resultBox > .valueWrap > .categoryNameWrap {
+  display: flex;
+  /* justify-content: space-between;
+  max-width: 600px; */
 }
 
 #list > .resultBox > .valueWrap > .categoryNameWrap > .category {
   font-weight: bold;
+  flex-basis: 10rem;
+  vertical-align: bottom;
+  margin: 0.3rem 0;
 }
 #list > .resultBox > .valueWrap > .categoryNameWrap > .name {
-  margin: 0.3rem 1rem;
+  margin: 0.3rem 0;
+
+  flex-basis: 550px;
+}
+#list > .resultBox > .valueWrap > .categoryNameWrap > .number {
+  flex-basis: 100px;
+  text-align: right;
+  margin: 0.3rem 0;
 }
 
-#list > .resultBox > div {
+/* #list > .resultBox > div {
   width: 50%;
-}
+} */
 #list > .resultBox > .valueWrap > div {
   display: flex;
 }
 
 #list > .resultBox p {
-  margin: 0.3rem 1rem;
+  margin: 0.3rem 2rem;
+  margin-left: 0;
+}
+
+footer {
+  height: 100px;
 }

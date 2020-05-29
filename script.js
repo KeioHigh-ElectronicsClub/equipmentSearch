@@ -1,5 +1,12 @@
+$('#keyword').keypress(function (e) {
+  if (e.which == 13) {
+    $('#keyword_submit').click()
+  }
+})
+
 $('.searchByItem > h2').on('click', function () {
   $('#items').slideToggle()
+  $('.searchByItem>h2').toggleClass('open')
 })
 
 $('#keyword_submit').on('click', function () {
@@ -23,7 +30,11 @@ $('#keyword_submit').on('click', function () {
     },
   })
 })
-
+$('.searchItem > input').keypress(function (e) {
+  if (e.which == 13) {
+    $('#item_submit').click()
+  }
+})
 $('#item_submit').on('click', function () {
   var category = $('#category').val()
   var name = $('#name').val()
