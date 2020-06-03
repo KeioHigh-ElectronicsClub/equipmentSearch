@@ -36,10 +36,14 @@ body {
   padding: 10px 30px;
   margin-top: 10px;
 }
-input {
+input,
+select {
   font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
     'ヒラギノ角ゴ Pro W3', sans-serif;
+  width: 180px;
+  box-sizing: border-box;
 }
+
 .searchByItem > h2 {
   cursor: pointer;
   position: relative;
@@ -94,31 +98,46 @@ li {
 }
 #items {
   display: none;
+  padding: 4px 0;
 }
 
-@media screen and (max-width: 560px) {
+#item > ul {
+  margin: 0;
+}
+
+@media screen and (max-width: 590px) {
   #keyword {
     width: 96%;
   }
   .searchItem > input {
-    flex-basis: 100%;
+    flex-basis: 101%;
     margin-right: 10px;
   }
-  #keyword_submit,
+  .searchItem > select {
+    flex-basis: 103%;
+    margin-right: 10px;
+  }
+  #keyword_submit {
+    width: 95.8%;
+  }
   #item_submit {
-    width: 98%;
+    width: 100%;
   }
 }
 #keyword_submit:hover,
 #item_submit:hover {
   background-color: #31136e;
 }
-
+#result {
+  display: none;
+}
+#searching {
+  text-align: center;
+  display: none;
+}
 #list > .resultBox {
   margin: 0 auto;
   border-bottom: black 1px dashed;
-}
-#list > .resultBox > .valueWrap {
 }
 #list > .resultBox > .valueWrap > .categoryNameWrap {
   display: flex;
