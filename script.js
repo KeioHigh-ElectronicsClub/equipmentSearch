@@ -1,5 +1,6 @@
 var list = []
 
+// 読み込み時カテゴリー、場所リスト取得
 $(function () {
   $.ajax({
     type: 'GET',
@@ -35,19 +36,22 @@ $(function () {
   })
 })
 
+// キーワード検索ボックスenter押下時処理
 $('#keyword').keypress(function (e) {
   if (e.which == 13) {
     $('#keyword_submit').click()
   }
 })
 
-$('.searchByItem > h2').on('click', function () {
-  $('#items').slideToggle()
-  $('.searchByItem>h2').toggleClass('open')
-})
-
+// キーワード検索実行処理
 $('#keyword_submit').on('click', function () {
+  $('#result').show()
+  $('#result').show()
   $('#searching').show()
+
+  $('#sort').val('')
+  $('#categoryFilter').val('')
+  $('#placeFilter').val('')
   var keyword = $('#keyword').val()
   console.log(keyword)
 
@@ -70,13 +74,24 @@ $('#keyword_submit').on('click', function () {
     },
   })
 })
+
+// 項目別検索欄表示処理
+$('.searchByItem > h2').on('click', function () {
+  $('#items').slideToggle()
+  $('.searchByItem>h2').toggleClass('open')
+})
+// 項目別検索enter押下時処理
 $('.searchItem > input').keypress(function (e) {
   if (e.which == 13) {
     $('#item_submit').click()
   }
 })
+// 項目別検索処理
 $('#item_submit').on('click', function () {
   $('#searching').show()
+  $('#sort').val(0)
+  $('#categoryFilter').val(0)
+  $('#placeFilter').val(0)
   var category = $('#category').val()
   var name = $('#name').val()
   var constant1 = $('#constant1').val()
@@ -127,6 +142,7 @@ $('#item_submit').on('click', function () {
   })
 })
 
+// カテゴリーフィルター処理
 $('#categoryFilter').change(function (e) {
   var selected = $('#categoryFilter').val()
   if (selected == '') {
@@ -138,6 +154,7 @@ $('#categoryFilter').change(function (e) {
   })
   showList(filterList)
 })
+// 場所フィルター処理
 $('#placeFilter').change(function (e) {
   var selected = $('#placeFilter').val()
   if (selected == '') {
@@ -149,6 +166,7 @@ $('#placeFilter').change(function (e) {
   })
   showList(filterList)
 })
+// ソート処理用関数factory
 function createSortFunc(name, isUp) {
   return function (a, b) {
     var data = []
@@ -176,7 +194,7 @@ function createSortFunc(name, isUp) {
     return 0
   }
 }
-
+// ソート処理｀
 $('#sort').change(function (e) {
   var selected = $('#sort').val()
   if (selected == '') {
@@ -195,7 +213,7 @@ $('#sort').change(function (e) {
       sortList = list.sort(createSortFunc('constant2', true))
       break
     case 'numberUp':
-      sortList = list.sort(createSortFunc('nubmer', true))
+      sortList = list.sort(createSortFunc('number', true))
       break
     case 'dateUp':
       sortList = list.sort(createSortFunc('date', true))
@@ -219,10 +237,11 @@ $('#sort').change(function (e) {
   showList(sortList)
 })
 
+// 日付文字列生成
 function createDateString(date) {
   return '' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate()
 }
-
+// 検索結果表示処理
 function showList(list) {
   console.log(list)
 
@@ -283,6 +302,6 @@ function showList(list) {
     box.append(valueWrap, urlRemarkWrap)
     $('#list').append(box)
   }
-  $('#result').show()
+
   $('#searching').hide()
 }

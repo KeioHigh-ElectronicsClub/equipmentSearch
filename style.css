@@ -1,9 +1,19 @@
 body {
   max-width: 1100px;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 0 10px;
   font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
     'ヒラギノ角ゴ Pro W3', sans-serif;
+}
+body,
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  margin-bottom: 50px;
 }
 
 .page-title {
@@ -11,8 +21,6 @@ body {
   font-weight: normal;
   margin-top: 30px;
   text-align: center;
-  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
-    'ヒラギノ角ゴ Pro W3', sans-serif;
 }
 .sub-title {
   font-size: 2rem;
@@ -20,8 +28,6 @@ body {
   margin-bottom: 15px;
   border-bottom: 2px #31136e solid;
   font-weight: normal;
-  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
-    'ヒラギノ角ゴ Pro W3', sans-serif;
 }
 #keyword {
   line-height: 200%;
@@ -38,8 +44,6 @@ body {
 }
 input,
 select {
-  font-family: 'Yu Gothic Medium', '游ゴシック Medium', YuGothic, '游ゴシック体',
-    'ヒラギノ角ゴ Pro W3', sans-serif;
   width: 180px;
   box-sizing: border-box;
 }
@@ -76,11 +80,7 @@ li {
   list-style: none;
   padding: 0;
 }
-.searchByItem {
-  position: relative;
-}
 .searchItem {
-  position: relative;
   display: flex;
   margin: 5px auto;
 }
@@ -99,10 +99,6 @@ li {
 #items {
   display: none;
   padding: 4px 0;
-}
-
-#item > ul {
-  margin: 0;
 }
 
 @media screen and (max-width: 590px) {
@@ -141,8 +137,6 @@ li {
 }
 #list > .resultBox > .valueWrap > .categoryNameWrap {
   display: flex;
-  /* justify-content: space-between;
-  max-width: 600px; */
 }
 
 #list > .resultBox > .valueWrap > .categoryNameWrap > .category {
@@ -153,7 +147,6 @@ li {
 }
 #list > .resultBox > .valueWrap > .categoryNameWrap > .name {
   margin: 0.3rem 0;
-
   flex-basis: 550px;
 }
 #list > .resultBox > .valueWrap > .categoryNameWrap > .number {
@@ -162,9 +155,6 @@ li {
   margin: 0.3rem 0;
 }
 
-/* #list > .resultBox > div {
-  width: 50%;
-} */
 #list > .resultBox > .valueWrap > div {
   display: flex;
 }
@@ -175,5 +165,9 @@ li {
 }
 
 footer {
-  height: 100px;
+  text-align: center;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  margin-top: auto;
 }

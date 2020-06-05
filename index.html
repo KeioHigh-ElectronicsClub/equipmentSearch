@@ -16,86 +16,89 @@
 </head>
 
 <body>
-  <header></header>
+  <div class="wrapper">
+    <header></header>
+    <main>
+      <h1 class="page-title">備品検索</h1>
 
-  <h1 class="page-title">備品検索</h1>
+      <section class="searhByKeyword">
+        <h2 class="sub-title">キーワード検索</h2>
+        <input type="text" name="keyword" id="keyword">
+        <input type="submit" value="検索" id="keyword_submit">
+      </section>
 
-  <section class="searhByKeyword">
-    <h2 class="sub-title">キーワード検索</h2>
-    <input type="text" name="keyword" id="keyword">
-    <input type="submit" value="検索" id="keyword_submit">
-  </section>
+      <section class="searchByItem">
+        <h2 class="sub-title">項目別検索</h2>
+        <div id="items">
+          <ul>
+            <li class="searchItem">
+              <label>カテゴリー </label>
+              <select name="category" id="category">
+                <option value="">未選択</option>
+              </select>
+            </li>
+            <li class="searchItem">
+              <label>名前 </label>
+              <input type="text" name="name" id="name"></li>
+            <li class="searchItem">
+              <label>定数１ </label>
+              <input type="text" name="constant1" id="constant1">
+            </li>
+            <li class="searchItem">
+              <label>定数２ </label>
+              <input type="text" name="constant2" id="constant2">
+            </li>
+            <li class="searchItem">
+              <label>数量 </label>
+              <input type="text" name="number" id="number"></li>
+            <li class="searchItem">
+              <label>場所</label>
+              <select name="place" id="place">
+                <option value="">未選択</option>
+              </select></li>
+            <li class="searchItem">
+              <label>更新日 </label>
+              <input type="date" name="date" id="date"></li>
+            <li class="searchItem">
+              <label>作成者名</label>
+              <input type="text" name="updatedBy" id="updatedBy">
+            </li>
+            <input type="submit" value="検索" id="item_submit">
+          </ul>
+        </div>
 
-  <section class="searchByItem">
-    <h2 class="sub-title">項目別検索</h2>
-    <div id="items">
-      <ul>
-        <li class="searchItem">
-          <label>カテゴリー </label>
-          <select name="category" id="category">
-            <option value="">未選択</option>
-          </select>
-        </li>
-        <li class="searchItem">
-          <label>名前 </label>
-          <input type="text" name="name" id="name"></li>
-        <li class="searchItem">
-          <label>定数１ </label>
-          <input type="text" name="constant1" id="constant1">
-        </li>
-        <li class="searchItem">
-          <label>定数２ </label>
-          <input type="text" name="constant2" id="constant2">
-        </li>
-        <li class="searchItem">
-          <label>数量 </label>
-          <input type="text" name="number" id="number"></li>
-        <li class="searchItem">
-          <label>場所</label>
-          <select name="place" id="place">
-            <option value="">未選択</option>
-          </select></li>
-        <li class="searchItem">
-          <label>更新日 </label>
-          <input type="date" name="date" id="date"></li>
-        <li class="searchItem">
-          <label>作成者名</label>
-          <input type="text" name="updatedBy" id="updatedBy">
-        </li>
-        <input type="submit" value="検索" id="item_submit">
-      </ul>
-    </div>
+      </section>
 
-  </section>
 
-  <h3 id="searching">検索中</h3>
-  <div id="result">
-    <h2 class="sub-title">検索結果</h2>
-    <select name="sort" id="sort">
-      <option value="">未選択</option>
-      <option value="nameUp">名前昇順</option>
-      <option value="constant1Up">定数1昇順</option>
-      <option value="constant2Up">定数2昇順</option>
-      <option value="numberUp">数量昇順</option>
-      <option value="dateUp">更新日昇順</option>
-      <option value="nameDown">名前降順</option>
-      <option value="constant1Down">定数1降順</option>
-      <option value="constant2Down">定数2降順</option>
-      <option value="numberDown">数量降順</option>
-      <option value="dateDown">更新日降順</option>
-    </select>
-    <select name="categoryFilter" id="categoryFilter">
-      <option value="">未選択</option>
-    </select>
-    <select name="placeFilter" id="placeFilter">
-      <option value="">未選択</option>
-    </select>
-    <section id="list"> </section>
+      <div id="result">
+        <h2 class="sub-title">検索結果</h2>
+        <h3 id="searching">検索中</h3>
+        <select name="sort" id="sort">
+          <option value="">ソートを指定</option>
+          <option value="nameUp">名前昇順</option>
+          <option value="constant1Up">定数1昇順</option>
+          <option value="constant2Up">定数2昇順</option>
+          <option value="numberUp">数量昇順</option>
+          <option value="dateUp">更新日昇順</option>
+          <option value="nameDown">名前降順</option>
+          <option value="constant1Down">定数1降順</option>
+          <option value="constant2Down">定数2降順</option>
+          <option value="numberDown">数量降順</option>
+          <option value="dateDown">更新日降順</option>
+        </select>
+        <select name="categoryFilter" id="categoryFilter">
+          <option value="">カテゴリーを指定</option>
+        </select>
+        <select name="placeFilter" id="placeFilter">
+          <option value="">場所を指定</option>
+        </select>
+        <section id="list"> </section>
+      </div>
+
+    </main>
+
+    <footer>慶應義塾高等学校電子工学研究会</footer>
   </div>
-
-
-
-  <footer></footer>
   <script src="script.js"></script>
 </body>
 
