@@ -32,7 +32,7 @@ $(function () {
     },
     error: function (xhr, status) {
       console.log(status)
-    },
+    }
   })
 })
 
@@ -45,7 +45,6 @@ $('#keyword').keypress(function (e) {
 
 // キーワード検索実行処理
 $('#keyword_submit').on('click', function () {
-  $('#result').show()
   $('#result').show()
   $('#searching').show()
 
@@ -71,7 +70,7 @@ $('#keyword_submit').on('click', function () {
     },
     error: function (xhr, status) {
       console.log(status)
-    },
+    }
   })
 })
 
@@ -88,6 +87,7 @@ $('.searchItem > input').keypress(function (e) {
 })
 // 項目別検索処理
 $('#item_submit').on('click', function () {
+  $('#result').show()
   $('#searching').show()
   $('#sort').val(0)
   $('#categoryFilter').val(0)
@@ -98,8 +98,9 @@ $('#item_submit').on('click', function () {
   var constant2 = $('#constant2').val()
   var number = $('#number').val()
   var place = $('#place').val()
-  var date = $('#date').val()
+  var updateDate = $('#updateDate').val()
   var updatedBy = $('#updatedBy').val()
+  var buyDate = $('#buyDate').val()
 
   category = category !== '' ? category : undefined
   name = name !== '' ? name : undefined
@@ -107,8 +108,9 @@ $('#item_submit').on('click', function () {
   constant2 = constant2 !== '' ? constant2 : undefined
   number = number !== '' ? number : undefined
   place = place !== '' ? place : undefined
-  date = date !== '' ? new Date(date).toDateString() : undefined
+  updateDate = updateDate !== '' ? new Date(updateDate).toDateString() : undefined
   updatedBy = updatedBy !== '' ? updatedBy : undefined
+  buyDate = buyDate !== '' ? new Date(buyDate).toDateString() : undefined
 
   var obj = {
     category: category,
@@ -117,8 +119,9 @@ $('#item_submit').on('click', function () {
     constant2: constant2,
     number: number,
     place: place,
-    date: date,
+    updateDate: updateDate,
     updatedBy: updatedBy,
+    buyDate: buyDate
   }
 
   var data = JSON.parse(JSON.stringify(obj))
@@ -138,7 +141,7 @@ $('#item_submit').on('click', function () {
     },
     error: function (xhr, status) {
       console.log(status)
-    },
+    }
   })
 })
 
@@ -167,7 +170,7 @@ $('#placeFilter').change(function (e) {
   showList(filterList)
 })
 // ソート処理用関数factory
-function createSortFunc(name, isUp) {
+function createSortFunc (name, isUp) {
   return function (a, b) {
     var data = []
     data[0] = a[name]
@@ -215,8 +218,11 @@ $('#sort').change(function (e) {
     case 'numberUp':
       sortList = list.sort(createSortFunc('number', true))
       break
-    case 'dateUp':
-      sortList = list.sort(createSortFunc('date', true))
+    case 'updateDateUp':
+      sortList = list.sort(createSortFunc('updateDate', true))
+      break
+    case 'buyDateUp':
+      sourList = list.sort(createSortFunc('buyDate', true))
       break
     case 'nameDown':
       sortList = list.sort(createSortFunc('name', false))
@@ -230,19 +236,22 @@ $('#sort').change(function (e) {
     case 'numberDown':
       sortList = list.sort(createSortFunc('number', false))
       break
-    case 'dateDown':
-      sortList = list.sort(createSortFunc('date', false))
+    case 'updateDateDown':
+      sortList = list.sort(createSortFunc('updateDate', false))
+      break
+    case 'buyDateDown':
+      sortList = list.sort(createSortFunc('buyDate', false))
       break
   }
   showList(sortList)
 })
 
 // 日付文字列生成
-function createDateString(date) {
-  return '' + date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate()
+function createDateString (date) {
+  return '' + date.getFullYear() + '/' + parseInt(date.getMonth() + 1) + '/' + date.getDate()
 }
 // 検索結果表示処理
-function showList(list) {
+function showList (list) {
   console.log(list)
 
   $('#list').empty()
@@ -252,7 +261,7 @@ function showList(list) {
 
   for (var i in list) {
     var box = $('<div></div>', {
-      class: 'resultBox',
+      class: 'resultBox'
     })
 
     var categoryNameWrap = $('<div></div>').addClass('categoryNameWrap')
@@ -274,12 +283,15 @@ function showList(list) {
     constantWrap.append(constant1, constant2)
 
     var datePlaceWrap = $('<div></div>').add('datePlaceWrap')
-    var date = $('<p></p>')
-      .text(createDateString(new Date(list[i].date)))
+    var updateDate = $('<p></p>')
+      .text(createDateString(new Date(list[i].updateDate)))
       .addClass('date')
+    var buyDate = $('<p></p>')
+      .text(createDateString(new Date(list[i].buyDate)))
+      .addClass('buyDate')
     var place = $('<p></p>').text(list[i].place).addClass('place')
     var updatedBy = $('<p></p>').text(list[i].updatedBy).addClass('updatedBy')
-    datePlaceWrap.append(date, place, updatedBy)
+    datePlaceWrap.append(updateDate, buyDate, place, updatedBy)
 
     valueWrap.append(categoryNameWrap, constantWrap, datePlaceWrap)
 
@@ -290,7 +302,7 @@ function showList(list) {
       URL = $('<p></p>').append(
         $('<a></a>', {
           href: list[i].url,
-          class: 'url',
+          class: 'url'
         }).text(list[i].url)
       )
     }

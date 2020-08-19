@@ -59,10 +59,14 @@
               </select></li>
             <li class="searchItem">
               <label>更新日 </label>
-              <input type="date" name="date" id="date"></li>
+              <input type="date" name="updateDate" id="updateDate"></li>
             <li class="searchItem">
               <label>作成者名</label>
               <input type="text" name="updatedBy" id="updatedBy">
+            </li>
+            <li class="searchItem">
+              <label>購入日</label>
+              <input type="date" name="buyDate" id="buyDate">
             </li>
             <input type="submit" value="検索" id="item_submit">
           </ul>
@@ -80,12 +84,12 @@
           <option value="constant1Up">定数1昇順</option>
           <option value="constant2Up">定数2昇順</option>
           <option value="numberUp">数量昇順</option>
-          <option value="dateUp">更新日昇順</option>
+          <option value="updateDateUp">更新日昇順</option>
           <option value="nameDown">名前降順</option>
           <option value="constant1Down">定数1降順</option>
           <option value="constant2Down">定数2降順</option>
           <option value="numberDown">数量降順</option>
-          <option value="dateDown">更新日降順</option>
+          <option value="updateDateDown">更新日降順</option>
         </select>
         <select name="categoryFilter" id="categoryFilter">
           <option value="">カテゴリーを指定</option>
