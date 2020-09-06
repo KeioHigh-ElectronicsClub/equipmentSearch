@@ -275,10 +275,10 @@ function showList (list) {
 
     var constantWrap = $('<div></div>').addClass('nameWrap')
     var constant1 = $('<p></p>')
-      .text(list[i].constant1 != 'not set' ? list[i].constant1 : '')
+      .text(list[i].constant1 != null ? list[i].constant1 : '')
       .addClass('constant1')
     var constant2 = $('<p></p>')
-      .text(list[i].constant2 != 'not set' ? list[i].constant2 : '')
+      .text(list[i].constant2 != null ? list[i].constant2 : '')
       .addClass('constant2')
     constantWrap.append(constant1, constant2)
 
@@ -298,7 +298,7 @@ function showList (list) {
     var urlRemarkWrap = $('<div></div>').addClass('urlRemarkWrap')
 
     var URL = undefined
-    if (list[i].url != 'not set') {
+    if (list[i].url != null) {
       URL = $('<p></p>').append(
         $('<a></a>', {
           href: list[i].url,
@@ -307,7 +307,7 @@ function showList (list) {
       )
     }
     var remark = $('<p></p>')
-      .text(list[i].remark != 'not set' ? list[i].remark : '')
+      .text(list[i].remark != null ? list[i].remark : '')
       .addClass('remark')
 
     urlRemarkWrap.append(URL, remark)
